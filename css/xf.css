@@ -1,0 +1,117 @@
+﻿/*
+作者：机领网-俞凌龙
+Q Q：378517657
+官网：jlwz.cn
+最后更新日期：2017年10月04日
+*/
+.hide{display:none;}
+#appDown {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    height: 53px;
+    background: #ffffff;
+    opacity: 0.9;
+    border-top: 1px solid #e0e0e0;
+    box-sizing: border-box;
+}
+#appDown_1 {
+    pointer-events: auto;
+    height: 53px;
+    box-sizing: border-box;
+}
+.appDown_2 {
+    border: none;
+    height: 36px;
+    width: 36px;
+    position: absolute;
+    bottom: 7px;
+    left: 40px;
+    background: url(../img/xf1.png) no-repeat;
+    background-size: 36px 36px;
+    -webkit-background-size: 36px 36px;
+}
+.appDown_21 {
+    border: none;
+    height: 36px;
+    width: 36px;
+    position: absolute;
+    bottom: 7px;
+    left: 40px;
+    background: url(../img/xf2.png) no-repeat;
+    background-size: 36px 36px;
+    -webkit-background-size: 36px 36px;
+}
+.appDown_22 {
+    border: none;
+    height: 36px;
+    width: 36px;
+    position: absolute;
+    bottom: 7px;
+    left: 40px;
+    background: url(../img/xf3.png) no-repeat;
+    background-size: 36px 36px;
+    -webkit-background-size: 36px 36px;
+}
+.appDown_23 {
+    border: none;
+    height: 36px;
+    width: 36px;
+    position: absolute;
+    bottom: 7px;
+    left: 40px;
+    background: url(../img/xf4.gif) no-repeat;
+    background-size: 36px 36px;
+    -webkit-background-size: 36px 36px;
+}
+.appDown_3 {
+    position: absolute;
+    padding: 11px 0 0 10px;
+    left: 76px;
+    color: #333;
+    font-family: 微软雅黑;
+    text-align: left;
+}
+.appDown_3 p:first-child {
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 16px;
+}
+.appDown_3 p:last-child {
+    color: #999;
+    font-size: 12px;
+    line-height: 20px;
+}
+.appDown_3 p {
+    margin: 0;
+    padding: 0;
+}
+.appDown_4 {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    width: 67px;
+    position: absolute;
+    bottom: 10px;
+    right: 11px;
+    box-sizing: border-box;
+    z-index: 99;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    color: #333;
+    font-size: 12px;
+    text-align: center;
+}
+#appDown_5 {
+    pointer-events: auto;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    height: 53px;
+    width: 40px;
+    background: url("../img/close.png") no-repeat 50% 50%;
+    background-size: 20px 20px;
+    -webkit-background-size: 20px 20px;
+}

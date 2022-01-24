@@ -1,0 +1,306 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/default.css" type="text/css">
+    <script src="js/common.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- <meta name="author" content="吉林网"> -->
+    <meta name="keywords" content="qzone工具">
+    <meta name="description" content="qzone工具">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+    <link rel="stylesheet" type="text/css" href="css/jlwzcn.css" media="all">
+    <!-- <link rel="apple-touch-icon-precomposed" href="img/jlw.jpg"> -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?b2fb69a69f62bf9db61369c3b3171f44";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <title>qzone工具</title>
+</head>
+
+<body>
+
+    <!-- <script type="text/javascript">
+    var windowWidth = $(window).width(); if (windowWidth > 1060) { document.write('
+    <script language="javascript" src="/js/ad_pc.js" charset="gbk">
+        < /s', 'cript>');
+        }
+    </script>
+
+    <!-- <header class="aside-left header" id="header">
+    <div class="logo"><a href="/"><img src="img/logo.png" alt="logo"></a></div>
+    <div class="menu-btn"> <a id="menu-js" href="javascript:;"><i class="iconfont top-cbl-ico"></i></a>
+        <a id="search-js" href="javascript:;">
+            <div class="search-box" id="search-box">
+                <form id="search-form" name="g" method="get" action="/bbs/book_list.aspx">
+                    <input type="hidden" name="siteid" value="1000">
+                    <input type="hidden" name="classid" value="0">
+                    <input type="hidden" name="action" value="search">
+                    <input type="hidden" name="type" value="title">
+                    <div class="search-box-text">
+                        <input type="text" name="key" placeholder="请输入关键字">
+                    </div>
+                </form>
+                <i class="iconfont top-cbl-ico"></i></div>
+        </a>
+        <a id="user-js" href="/wapindex-1000-229.html"><i class="iconfont top-cbl-ico"></i></a>
+
+        <a id="user-js" href="/waplogin-1000-0.html?backurl=wapindex-1000-345.html"><i class="iconfont top-cbl-ico"></i></a>
+    </div>
+
+
+    </header> -->
+    <div class="aside-left main" id="main">
+        <!-- <div class="mains">
+        <div class="dh_bg">
+            <div class="dh_kz">
+                <a href="/adlinklist-254.html" target="_blank">资源</a>
+                <a href="/wapindex-1000-81.html" target="_blank">工具</a>
+                <a href="/wapindex-1000-306.html" target="_blank">优惠</a>
+                <a href="/wapindex-1000-219.html" target="_blank">下载</a>
+                <a href="/download-12548.html" target="_blank">APP</a>
+            </div>
+    </div> -->
+        <script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <div class="bbstitle">一键生成蓝字链接</div>
+        <p>请输入链接：<br>
+            <input type="text" name="url" class="txt" placeholder="如:http://lumos.sbs"></p>
+        <p>请输入蓝字：<br>
+            <input type="text" name="content" class="txt" placeholder="如:@芬兰岛"></p>
+        <p>请复制结果：<br>
+            <input type="text" id="output" class="txt"></p>
+        <input type="submit" value="生成" onclick="gentext0();" class="btn">
+        <script type="text/javascript">
+            function gentext0() {
+                var link = document.querySelector("input[name=url]").value;
+                if (link == "") {
+                    link = "https://lumos.sbs";
+                }
+                link = link.replace(":", "%3A");
+                var kjtxt = document.querySelector("input[name=content]").value;
+                if (kjtxt == "") {
+                    kjtxt = "芬兰岛";
+                }
+                var output = document.querySelector("#output");
+                output.value = "{url:" + link + ",text: }{url:" + link + ",text:" + kjtxt + "}";
+            }
+        </script>
+        <div class="bbstitle">一键跳转QQ加好友链接</div>
+        <p>请输入QQ号：<br>
+            <input type="text" name="qq" class="txt" placeholder="如：10001"></p>
+        <p>请复制结果：<br>
+            <input type="text" id="outputyuan" class="txt"></p>
+        <input type="submit" value="生成" onclick="gentext1();" class="btn">
+        <script type="text/javascript">
+            function gentext1() {
+                var qq = document.querySelector("input[name=qq]").value;
+                var output = document.querySelector("#output");
+                var outputyuan = document.querySelector("#outputyuan");
+                outputyuan.value = "http://wpa.qq.com/msgrd?v=3&uin=" + qq;
+                var urlStr = "http://wpa.qq.com/msgrd?v=3&uin=" + qq;
+                var convertStr = encodeURIComponent(urlStr);
+                var convertStr2 = encodeURIComponent(urlStr2);
+                $.ajax({
+                    type: 'GET',
+                    url: 'https://api2.jlwz.cn/jsonp/sina.php?url=' + convertStr,
+                    dataType: "jsonp",
+                    jsonp: "callback",
+                    success: function(r) {
+                        url_short = r[0].url_short;
+                        //console.log(r);
+                        //url_short = r["url"];
+                        output.value = url_short;
+                    },
+                    error: function(xhr, msg) {}
+                });
+                $.ajax({
+                    type: 'GET',
+                    url: 'https://api2.jlwz.cn/jsonp/sina.php?url=' + convertStr2,
+                    dataType: "jsonp",
+                    jsonp: "callback",
+                    success: function(r) {
+                        url_short = r[0].url_short;
+                        //console.log(r);
+                        //url_short = r["url"];
+                        output2.value = url_short;
+                    },
+                    error: function(xhr, msg) {}
+                });
+            }
+        </script>
+
+        <!-- <div class="tip">
+        【使用方法】<br> 输入你要跳转的链接和说说内容，然后点击生成即可。
+        <br> 将生成的内容复制后，到手机端QQ空间发表说说。
+        <br> 然后蓝色文字链接的说说内容就完成了，建议链接用【
+        <a href="/wapindex-1000-343.html" target="_blank">生成一键加好友链接</a>】，这样别人点你的说说会直接跳转到你的QQ名片，是不是很赞！<br> 注意：仅手机端有效。
+        <br> 无法使用请联系QQ：22819742
+        <br>
+
+
+
+
+    </div> -->
+        <link rel="stylesheet" type="text/css" href="css/xf.css" media="all">
+        <script language="javascript" src="js/xf.js"></script>
+        <script>
+            (function() {
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                } else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+        </script>
+        <style type="text/css">
+            .ads_ui {
+                position: fixed;
+                top: 40%;
+                width: 100%;
+                max-width: 720px;
+                z-index: 99999;
+            }
+            
+            .ads_content {
+                position: relative;
+            }
+            
+            .adsClose {
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                width: 15px;
+                height: 15px;
+                background: url(/images/adclose.png) no-repeat;
+                background-size: 100% 100%;
+            }
+            
+            .adsButton {
+                position: absolute;
+                right: 0px;
+                top: 15px;
+                width: 50px;
+                height: 75px;
+                background: url(/images/jdnhj2022.png) no-repeat;
+                background-size: 100% 100%;
+            }
+        </style>
+        <div class="ads_ui">
+            <div class="ads_content">
+                <div class="adsClose"></div>
+                <div style="cursor: pointer" onclick="" class="adsButton"></div>
+            </div>
+        </div>
+
+        <script>
+            $(function() {
+                $(".adsButton").click(function() {
+                    window.location.href = "https://u.jd.com/SCivlOe";
+                });
+
+                $(".adsClose").click(function() {
+                    $(".ads_ui").remove();
+                });
+
+            });
+        </script>
+        <footet>
+            <!-- <div class="jlwz_quandibg" style="height: 65px;">
+            <div class="jlwz_quandi">
+                <h1>
+                    <a href="/jlwzcn.apk">机领APP</a>|<a href="/wapindex-1000-81.html">实用工具</a>|<a href="/wapindex-1000-3.html">机领天下</a>|<a href="/wapindex-1000-168.html">机领导航</a>
+                </h1>
+                <p>
+
+                    Copyright © 2011 - 2022 机领网 JLWZ.CN
+                    <br> 乐生活，来机领...
+                    <a target="_blank" href="https://jq.qq.com/?_wv=1027&amp;k=43sdvye"><img border="0" src="img/group.png" style="width:50px;height:12px;" alt="机领网超级交流群" title="机领网超级交流群" onclick="return qunTip(this)"></a>
+                </p>
+            </div>
+    </div> -->
+            <!-- <script type="text/javascript">
+            function qunTip(obj) { var tip = confirm('新人加群必看：\n群满就根据提示加新群！\n不得打广告或刷屏！\n备注你的机领ID或者机领网址\n机领网：jlwz.cn\n因为有你所以精彩！'); return tip; }
+            </script> -->
+        </footet>
+
+        <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6157310098043743" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6157310098043743" data-ad-slot="5877194471" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+    <!-- 
+    </div>
+    <aside class="aside" id="aside">
+
+        <div class="jlwz_svers">
+            <div class="jlwz_sver">
+                <li>
+                    <a href="/waplogin-1000-0.html?backurl=wapindex-1000-345.html"><img src="img/dl.png" alt="."><br> 登 录</a>
+                </li>
+                <y>
+                    <a href="/reg.html"><img src="img/zc.png" alt="."><br> 注 册</a>
+                </y>
+            </div>
+        </div>
+
+        <div class="jlwz_sverqq">
+            <li> <a href="/new.html"><i class="iconfont" style="font-size: 15px;"></i> 最新帖子</a>
+
+            </li>
+            <y> <a href="/Signin/Signin.aspx?action=index&amp;siteid=1000&amp;classid=201"><i class="iconfont" style="font-size: 15px;"></i> 每日签到</a>
+
+            </y>
+        </div>
+        <div class="nv">
+            <ul>
+                <li><a href="/"><i class="iconfont" style="font-size: 20px;"></i> 机领首页</a></li>
+                <li><a href="/adlinklist-254.html"><i class="iconfont" style="font-size: 20px;"></i> 每日资源</a></li>
+                <li><a href="/bbsstype-244-473.html"><i class="iconfont" style="font-size: 20px;"></i> 活动福利</a></li>
+                <li><a href="/wapindex-1000-81.html"><i class="iconfont" style="font-size: 20px;"></i> 实用工具</a></li>
+                <li><a href="/wapindex-1000-229.html"><i class="iconfont" style="font-size: 20px;"></i> 关注机领</a></li>
+                <li><a href="/wapindex-1000-219.html"><i class="iconfont" style="font-size: 20px;"></i> 下载专区</a></li>
+                <li><a href="/shoplist-289.html"><i class="iconfont" style="font-size: 20px;"></i> 机领周边</a></li>
+            </ul>
+        </div>
+    </aside>
+    <div class="quick_nav" id="quick_nav" style="left: 12px; bottom: 55px;">
+        <div class="quick_btn"></div>
+        <div class="quick_con hide">
+            <ul class="quick_list">
+                <li class="qnav_home"><a href="/wapindex-1000-0.html">首页</a></li>
+                <li class="qnav_one"><a href="/download-12548.html">客户端</a></li>
+                <li class="qnav_two"><a href="/rizhilist-0.html">朋友圈</a></li>
+                <li class="qnav_three"><a href="/Signin/Signin.aspx?action=index&amp;siteid=1000&amp;classid=201">签到</a></li>
+                <li class="qnav_four"><a href="/wapindex-1000-229.html">公众号</a></li>
+                <li class="qnav_five"><a href="/wapindex-1000-321.html">搜索券</a></li>
+                <li class="qnav_six"><a href="#top">回顶部</a></li>
+            </ul>
+        </div>
+    </div> -->
+    <script type="text/javascript">
+        loadFn();
+        quick_nav();
+    </script>
+
+
+</body>
+
+</html>
